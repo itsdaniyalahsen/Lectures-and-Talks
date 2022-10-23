@@ -1,0 +1,374 @@
+\documentclass{beamer}
+
+\usepackage{amsmath, mathtools}
+
+\title{Acoustic Flow, Part 1 : First Order Theory}
+\author{Daniyal Ahsen, BS. Mechanical Engg., PIEAS}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{A Review of Thermodynamics}
+
+	\begin{itemize}
+		\item{Coefficient of Isothermal Compressibility of a Fluid}
+
+			The Isothermal Compressiblity of a Fluid denoted by $\alpha$ is given by the formula $\kappa = \frac{1}{\rho} (\frac{\partial \rho}{\partial p})_{\textit{s}}$
+
+		\item{The Isobaric Compressibility}
+
+			The Isobaric Compressiblity of a fluid can be denoted by 
+			$\beta$ = - $\frac{1}{\rho} (\frac{\partial P}{\partial T})_p$ 
+
+
+    \item{The Specific Gas Constant and Heat Ratio}
+
+      It is known that $dh = C_p dT$, and $du = C_v dT$. Then, $dh-du = R dT$.
+
+      From the last equation it can be deduced that, $R = C_p - C_v$.
+
+      We can write, $R/C_v = C_p/C_v - 1$ for a particular gas.
+
+	\item The right hand side of this equation is often shortened to $\gamma -1 $ Where $\gamma = C_p/C_v$. Typical values of $\gamma$ are 1.2, 1.4 and 1.6 approx. for most simple (monoatomic, diatomic and polyatomic gases resp.).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Basic Equation for Compressible Flow}
+\begin{itemize}
+
+	\item{Using Equ 1}
+	
+	From Equation 1 on the previous slide, we can write,
+	\begin{equation}
+	\rho \alpha = (\frac{\partial \rho}{\partial p})_{\textit{s}}
+	\end{equation}
+	\item{Now, } we can solve the equation above, to get,
+	\begin{equation}
+	\rho \alpha \gamma = \frac{\partial \rho}{\partial p},
+	\end{equation}
+	Where the constant entropy condition is replaced by multiplying the LHS. by $\gamma$.
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+
+	\item{Now using the relation for Isobaric Compressibility, We get}
+	
+	\begin{equation}\partial \rho/\rho = -\beta dT\end{equation} 
+	
+	\item{The total differential should be}
+	
+	\begin{equation}Dp/p = \gamma \alpha dp - \beta dT\end{equation}
+	
+	\item{Using this alongside Continuity Equation (Expressed in form of differentials}
+	
+	\begin{equation}\frac{D\rho}{\rho} + \nabla . V dt = 0\end{equation}
+	
+	We get,
+	
+	\begin{equation}\nabla . V dt = \beta dT - \gamma \alpha dp\end{equation}
+	
+	Which can now be coupled with the equations of state and the Navier-Stokes Equations.
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Continuity Equation (Summary)}
+
+\begin{itemize}
+	\item Vector Form
+	
+	From the wave equation (1D Wave),
+		
+	\begin{equation}p_{tt} = c^2 p_{xx}\end{equation}
+
+	Now for the type of a wave in question, we also need to add the desnity wave effects to this equation. We essensially proceed by substituting the previous relation for the density cahnge into the compressible continuity equation to obtain the following equation,
+	
+	\begin{equation}
+	\partial_t p = \frac{1}{\gamma \kappa} [\alpha \partial_t T - \nabla . \vec{V}]
+	\end{equation}
+		
+	The first part arises due to the correction in temperature whist the second part is due to the compressive effects of the pressure wave (which arises directly out of the wave equation).
+	
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame} {The Algebra of Vectors and its relation to Complex Numbers}
+
+\begin{itemize}
+
+	\item{To Write this equation in complex form, we use the bivector algebra $BV(\mathbb{R}^2)$}. Whence we substitue,
+	
+		\begin{equation}
+		i \wedge j = e_{ij} = \iota = \sqrt{-1}
+		\end{equation}
+	Where i and j are defined in the usual way and thee= wedge product of vectors is defined as a bilinear distrubutive product acting according to the rule stated above and 
+		\begin{equation}
+		x \wedge y = - y \wedge x
+		\end{equation}
+		
+		It can be shown that the wedge product is essensially the cross porduct with the exception of it projecting the product of vectors onto a dyadic basis.
+	
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Complex form of the Pressure Equation}
+
+\begin{itemize}
+
+
+\item { Velocity of a particle on the wall is given by, }
+
+	\begin{equation}
+	V.\hat{n} = e^{-i\omega t} v_{bc}(y, z)
+	\end{equation}
+	
+\item{We can now apply the Energy Equation along a streamline}
+Assuming constant elevation,
+
+	\begin{equation}
+	d\hat{u_h} + \frac{dp}{\rho g} + V dV = 0
+	\end{equation}
+	
+	$u_h$ is the head of the internal energy. If we take $du_h = 0$ then we get,
+	
+	\begin{equation}
+	V_t dV_t = \frac{-dp}{\rho g}
+	\end{equation}
+	
+	The normal component of velocity can be found out by using the boundary conidtions. And the tangential compoonent is given by the above equation. So our analysis of the energy equation is complete.
+	
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Complex form of the Pressure Equation}
+
+
+\begin{itemize}
+
+\item We write the Velocity as $V = V_t \hat{t} + V_n \hat{n}$. So we get, the tangential component from euqation (14) and then we get normal component using our initial relation and boundary conditions. This gives us the complex form of the pressure equations.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Momentum Equations (Generalized Navier-Stokes)}
+
+\begin{itemize}
+
+\item The biggest issue so far has been the implicit dependence of each equation on the solution of the previous, now it gets worse!!\begin{equation}
+p -> V -> E -> V -> p -> ...
+\end{equation}
+
+\item The Momentum Equations for such a flow are given by,
+\begin{equation}
+\rho \partial_t \vec{V} = -\nabla p + \eta \nabla^2 \vec{V} + \beta \eta \nabla(\nabla . \vec{V})
+\end{equation}
+
+\item $\beta$ is the viscosity ratio and $\eta$ is the dynamic viscosity of the fluid.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{The Heat Equation}
+\begin{itemize}
+
+\item The Heat Equation, along with the Joule-Thompson Effect is given by,
+
+\begin{equation}
+\partial_t T = D_{th} \nabla ^ 2 T + \frac{\alpha T_0}{\rho_0 C_p} \partial_t p
+\end{equation}
+
+
+\item This can be derived in the following way:
+
+\item The Heat equation is
+
+\begin{equation*}
+\partial_t T = D_{th} \nabla^2 T
+\end{equation*}
+
+\item And the Joule-Thompson Effect is given by the equation:
+
+\begin{equation*}
+\partial_t T = \frac{\alpha T_0}{\rho_0 C_p} \partial_t p
+\end{equation*}
+
+
+Superimposing both equations give us the required equation.
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Boundary Contitions}
+
+\begin{itemize}
+
+\item Wall Functions
+
+The Wall's in this scenario support considerable wall stress $\tau_w$, the wall stress arises due to the standing wave inside the fluid column which generates significant schitling stresses in the boundary layer region.
+These schitling stresses generate the schilting flows inside the boundary layer region. These schilting flows inside the boundary layer region cause a significant wall stress due to the No-Slip Condition at the wall. The walls are stationary so, $V_{wall} = 0$.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Boundary Conditions (Continued)}
+
+
+\begin{itemize}
+\item Boundary Layer
+
+\begin{equation}
+\delta_{vis} \approx \sqrt{\frac{2V}{\omega}}
+\end{equation}
+
+
+
+The boundary layer is assumed to exist uptil a very small length $delta$ along the boundaries of the pipe. This is the standard assumption. Therefore viscous effects only matter if $r > R_{pipe} - \delta_{vis}$.
+
+
+
+Where $\omega$ is the angular frequency of motion.
+
+\item Pressure Variation at the Walls
+
+The Pressure Variation at the walls is given by the following equation (11).
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Boundary Conditions (Continued)}
+
+
+\begin{itemize}
+\item Thermal Boundary Layer
+
+The thermal layer produces significant convective effects only inside the thermal penetration depth $\delta_{th}$. Again these effects are only significant very close to the walls. And so these effects donot disturb the motion of particles sufficiently away from the wall. These are given by the equation (As will be proved later)
+
+\begin{equation}
+\delta_{th} \approx \sqrt{\frac{2V}{\omega}}
+\end{equation}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{First Order Approximation to the Equations}
+
+\begin{itemize}
+
+\item Assuming each term is expanded to the first order essensially we expand each variable Q as
+
+\begin{equation}
+\begin{split}
+\MoveEqLeft 
+Q(a + \delta x, b + \delta y) = Q(a+,b) + \delta x \frac{\partial Q}{\partial x}(a,b) + 
+\delta y \frac{\partial Q}{\partial y}(a,b) + \\ 
+& \frac{\delta x^2}{2} \frac{\partial^2 Q} {\partial x^2}(a,b) +   \delta x \delta y \frac{\partial ^ 2 Q}{\partial x \partial y}(a,b) +\frac{\delta y^2}{2} \frac{\delta^2 Q}{\delta y^2}(a,b) \\ 
+&  + \mathcal{O}(x^3, y^3)
+\end{split}
+\end{equation}
+
+
+This will be used as our method to approximate the solutions. Note that in case of terbulence $2^{nd}$ order solutions are no longer sufficient.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame} {First Order Approximation to the Equations (Continued)}
+
+\begin{itemize}
+
+\item We expand the following varialbes in the following ways:
+
+\begin{equation*}
+\begin{split}
+\MoveEqLeft
+T = T_0 + T_1 + T_2 \\
+& V = V_0 + V_1
+\end{split}
+\end{equation*}
+
+Note that the velocity is only expanded to the first order, this is because second order temperature and pressure terms are required to approximate velocity to the first order. Going beyond this would overcomplicate matters.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{An Alternative Approach to the Problem}
+
+\begin{itemize}
+
+\item The Navier-Stokes Equations (Vorticity Form)\begin{equation}
+\frac{D\vec{\zeta}}{Dt} = \nabla x \vec{f}
+\end{equation}
+
+Where f are the non-potential forces acting on the fluid. For our case $\vec{f}$ is the acoustic radiation force. 
+
+\item If we can calculate the acoustic radiation force (per unit mass), we can directly substitute values in the Navier-Stokes Equations and Continuity and the fluid motion is completely determined.
+
+\item This is especially appropriate since the streaming effects are rotational. This approach will not be explored further until Part 4.
+
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{First Order Approximation to the Equations}
+
+\begin{itemize}
+
+\item Assumption:  Let us assume that all fields (velocity etc.) have a time dependence. (This is logical but not absolutely necessary)
+Then we get,
+
+\begin{equation}
+\begin{split}
+\MoveEqLeft
+\iota \omega T_1 + \gamma D_{th} \nabla ^ 2 T_1 = \frac{\gamma - 1}{\alpha} \nabla . V_1
+\end{split}
+\end{equation}
+
+\begin{equation}
+\iota \omega V_1  + \frac{\eta}{\rho} \nabla^2 V_1 + \frac{\eta}{\rho} [ \beta + \frac{\iota}{\gamma \kappa \eta \omega}] \nabla(\nabla . V_1) = \frac{\alpha}{\gamma \rho \kappa} \nabla T_1
+\end{equation}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame} {Major Conclusions from the First Order Theory}
+\begin{itemize}
+
+\item We can now deduce the formulae for the visocus layer thickness and the thermal boundary layer thickness from the last two formulae.
+
+These can be derived using Elementary Boundary Layer Theory.
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Applications of the First Order Theory}
+
+\begin{itemize}
+
+\item Strings on a guitar
+
+The pressure wave generated propagates outward from the wave centre. The pressure wave funciton is provided by the standard wave equation:
+
+\begin{equation*}
+p_{tt} = c^2 (p_{xx} + p_{yy})
+\end{equation*}
+
+\end{itemize}
+
+\end{frame}
+
+\end{document}
